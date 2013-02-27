@@ -4,10 +4,10 @@
 " Author: Henrik Lissner <henrik at lissner.net>
 " URL: https://github.com/hlissner/vim-transmitty
 
-" if exists('g:loadedTransmitty')
-"     finish
-" endif
-" let g:loadedTransmitty = 1
+if exists('g:loadedTransmitty')
+    finish
+endif
+let g:loadedTransmitty = 1
 
 
 """""""""""""""
@@ -21,9 +21,9 @@ func! s:upload(force_no_lookup)
         return
     endif
 
-    " silent exec '!open -a Transmit '.shellescape(filepath)
-    echo filepath
-    " echom "Uploaded!"
+    silent exec '!open -a Transmit '.shellescape(filepath)
+    " echo filepath
+    echom "Uploaded!"
 endfunc
 
 " See if this is one of the "lookup" extensions, and if it is, find the real
@@ -40,10 +40,10 @@ func! s:findFile()
         let lookup = g:transmittyLookupExts[ext]
 
         let dir  = expand("%:p:h")
-        let base = expand("%:r")
+        let base = expand("%:t:r")
 
         " Find/set the new directory
-        let dir = lookup[0][0] == '/' ? lookup[0] : dir.lookup[0]
+        let dir = resolve(expand(lookup[0][0] == '/' ? lookup[0] : dir.'/'.lookup[0]))
 
         " Find/set the new file extension
         if index(lookup, 1) != -1
