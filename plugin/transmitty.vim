@@ -4,15 +4,10 @@
 " Author: Henrik Lissner <henrik at lissner.net>
 " URL: https://github.com/hlissner/vim-transmitty
 
-if exists('g:loadedTransmitty')
-    finish
-endif
-let g:loadedTransmitty = 1
-
-if !filereadable('/Applications/Transmit.app')
-    echoe "Transmit was not found in your Applications folder"
-    finish
-endif
+" if exists('g:loadedTransmitty')
+"     finish
+" endif
+" let g:loadedTransmitty = 1
 
 
 """""""""""""""
@@ -20,15 +15,15 @@ endif
 """""""""""""""
 " Try to send the currently open file to Transmit!
 func! s:upload(force_no_lookup)
-    let filepath = a:force_no_lookup ? expand('%:p') : s:findFile()
+    let filepath = a:force_no_lookup == 1 ? expand('%:p') : s:findFile()
     if strlen(filepath) == 0
         echoe "Could not find the file! (Was it saved/compiled?)"
         return
     endif
 
-    silent exec '!open -a Transmit '.shellescape(filepath)
-    " echo filepath
-    echom "Uploaded!"
+    " silent exec '!open -a Transmit '.shellescape(filepath)
+    echo filepath
+    " echom "Uploaded!"
 endfunc
 
 " See if this is one of the "lookup" extensions, and if it is, find the real
@@ -93,12 +88,12 @@ call s:definePath('coffee',     ['../js', 'min.js'])
 """"""""""""""
 "  MAPPINGS  "
 """"""""""""""
-map <Plug>(transmitty-upload) =<C-U>call <SID>upload(0)<CR>
-map <Plug>(transmitty-upload-this) =<C-U>call <SID>upload(1)<CR>
+map <Plug>TransmittyUpload :<C-U>call <SID>upload(0)<CR>
+map <Plug>TransmittyUploadThis :<C-U>call <SID>upload(1)<CR>
 
 if g:transmittyNoMappings != 1
     " Upload current file (check paths)
-    map <leader>u <Plug>(transmitty-upload)
+    map <leader>u <Plug>TransmittyUpload
     " Upload the current file (no lookup)
-    map <leader>U <Plug>(transmitty-upload-this)
+    map <leader>U <Plug>TransmittyUploadThis
 endif
