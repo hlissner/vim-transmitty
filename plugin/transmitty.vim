@@ -67,11 +67,11 @@ endfunc
 """"""""""""""
 "  DEFAULTS  "
 """"""""""""""
-if !exists('g:transmitty_nomappings')
+if !exists('g:transmittyNoMappings')
     let g:transmittyNoMappings = 0
 endif
 
-if !exists('g:transmitty_nomappings')
+if !exists('g:transmittyLookupExts')
     let g:transmittyLookupExts = {}
 endif
 
