@@ -37,14 +37,14 @@ Simply, the plugin provides two shortcuts:
 Regarding where the plugin looks for compiled files, the following defaults are set:
 
     let g:transmittyLookupExts = {
-        'sass':         ['../css', 'css'],
-        'scss':         ['../css', 'css'],
-        'less':         ['../css', 'css'],
-        'stylus':       ['../css', 'css'],
-        'haml':         ['../', 'html'],
-        'jade':         ['../', 'html'],
-        'slim':         ['../', 'html'],
-        'coffeescript': ['../js', 'min.js'],
+        'sass':     ['../css', 'css'],
+        'scss':     ['../css', 'css'],
+        'less':     ['../css', 'css'],
+        'stylus':   ['../css', 'css'],
+        'haml':     ['../', 'html'],
+        'jade':     ['../', 'html'],
+        'slim':     ['../', 'html'],
+        'coffee':   ['../js', 'min.js'],
     }
 
 To set your own:

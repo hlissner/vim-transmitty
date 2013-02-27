@@ -84,14 +84,14 @@ endfunc
 "  MAPPINGS  "
 """"""""""""""
 " Set default paths
-call s:definePath('sass',         ['../css', 'css'])
-call s:definePath('scss',         ['../css', 'css'])
-call s:definePath('less',         ['../css', 'css'])
-call s:definePath('stylus',       ['../css', 'css'])
-call s:definePath('haml',         ['../', 'html'])
-call s:definePath('jade',         ['../', 'html'])
-call s:definePath('slim',         ['../', 'html'])
-call s:definePath('coffeescript', ['../js', 'min.js'])
+call s:definePath('sass',       ['../css', 'css'])
+call s:definePath('scss',       ['../css', 'css'])
+call s:definePath('less',       ['../css', 'css'])
+call s:definePath('stylus',     ['../css', 'css'])
+call s:definePath('haml',       ['../', 'html'])
+call s:definePath('jade',       ['../', 'html'])
+call s:definePath('slim',       ['../', 'html'])
+call s:definePath('coffee',     ['../js', 'min.js'])
 
 if g:transmittyNoMappings != 1
 
