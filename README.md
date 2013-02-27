@@ -27,8 +27,8 @@ This should go without saying: this is MAC ONLY. You also need
 
 The plugin provides two simple shortcuts:
 
-    <leader>u       " Send this file to Transmit"
-    <leader>U       " Send this file to Transmit (but don't look for compiled files)
+    <leader>ou       " Send this file to Transmit"
+    <leader>oU       " Send this file to Transmit (but don't look for compiled files)
 
 It will search for compiled files for any filetype that's been registered in the
 g:transmittyLookupExts dictionary. These are the provided defaults:

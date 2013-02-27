@@ -25,10 +25,10 @@ USAGE                                           *transmitty-usage*
 The plugin provides two simple shortcuts:
 
     " Send this file to Transmit"
-    <leader>u       
+    <leader>ou       
 
     " Send this file to Transmit (but don't look for compiled files)
-    <leader>U       
+    <leader>oU       
 
 It will search for compiled files for any filetype that's been registered in the
 g:transmittyLookupExts dictionary. These are the provided defaults:
