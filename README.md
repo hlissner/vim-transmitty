@@ -2,8 +2,8 @@
 ## Description
 A simple vim plugin that lets you send the current file to
 [Transmit](http://panic.com/transmit/), leveraging its "dropsend" feature. The
-plugin also does a shallow search for for filetypes that are compiled. For
-example, CSS stylesheet compiled from [SCSS](http://sass-lang.com/),
+plugin also does a shallow search for compiled filetypes. For example, CSS
+stylesheet compiled from [SCSS](http://sass-lang.com/),
 [LESS](http://lesscss.org/) or [stylus](http://learnboost.github.com/stylus/).
 
 ## Installation
