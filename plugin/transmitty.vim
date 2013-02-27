@@ -92,7 +92,7 @@ map <Plug>TransmittyUploadNoLook :<C-U>call <SID>upload(1)<CR>
 
 if g:transmittyNoMappings != 1
     " Upload current file (check paths)
-    map <leader>u <Plug>TransmittyUploadLook
+    nmap <leader>ou <Plug>TransmittyUploadLook
     " Upload the current file (no lookup)
-    map <leader>U <Plug>TransmittyUploadNoLook
+    nmap <leader>oU <Plug>TransmittyUploadNoLook
 endif
