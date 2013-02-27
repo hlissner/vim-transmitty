@@ -20,19 +20,18 @@ Then restart and run:
 
 ## Requirements
 
-Should go without saying that this is **MAC ONLY**.
-
-Also, you need [Transmit](http://panic.com/transmit/) in your /Applications
-folder.
+This should go without saying: this is MAC ONLY. You also need
+[Transmit](http://panic.com/transmit/) in your /Applications folder.
 
 ## Usage
 
-Simply, the plugin provides two shortcuts:
+The plugin provides two simple shortcuts:
 
     <leader>u       " Send this file to Transmit"
     <leader>U       " Send this file to Transmit (but don't look for compiled files)
 
-Regarding where the plugin looks for compiled files, the following defaults are set:
+It will search for compiled files for any filetype that's been registered in the
+g:transmittyLookupExts dictionary. These are the provided defaults:
 
     let g:transmittyLookupExts = {
         'sass':     ['../css', 'css'],
@@ -45,16 +44,16 @@ Regarding where the plugin looks for compiled files, the following defaults are 
         'coffee':   ['../js', 'min.js'],
     }
 
-To set your own:
+If you'd like to set/add your own:
 
     " folder_to_search is relative to the open file
     let g:transmittyLookupExts["filetype"] = ["folder_to_search", "extension"]
 
 ## Recommendations
 
-I'd suggest you try out [LiveReload](http://livereload.com/) or
-[CodeKit](http://incident57.com/codekit/) to "watch" and compile your code
-on save.
+I'd recommend [LiveReload](http://livereload.com/) and
+[CodeKit](http://incident57.com/codekit/) to "watch" and compile your code when
+you save.
 
 This plugin's a part of my [VIM distro for spaghetti code
 warriors](https://github.com/hlissner/mlvim).

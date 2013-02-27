@@ -1,0 +1,69 @@
+*transmitty*    Transmit.app integration for VIM
+
+Author:  Henrik Lissner <http://henrik.io>
+License: Same as Vi (see |license|)
+
+    |transmitty|                 Introduction
+    |transmitty-requirements|    Requirements
+    |transmitty-usage|           How to use Transmitty
+    |transmitty-settings|        Configuring Transmitty
+
+INTRODUCTION                                    *transmitty*
+
+A simple vim plugin that lets you send the current file to Transmit,
+leveraging its "dropsend" feature. The plugin also does a shallow search for
+for filetypes that are compiled. For example, CSS stylesheet compiled from
+SCSS, LESS or Stylus.
+
+REQUIREMENTS                                    *transmitty-requirements*
+
+This should go without saying: this is MAC ONLY. You also need Transmit in
+your /Applications folder.
+
+USAGE                                           *transmitty-usage*
+
+The plugin provides two simple shortcuts:
+
+    " Send this file to Transmit"
+    <leader>u       
+
+    " Send this file to Transmit (but don't look for compiled files)
+    <leader>U       
+
+It will search for compiled files for any filetype that's been registered in the
+g:transmittyLookupExts dictionary. These are the provided defaults:
+
+    let g:transmittyLookupExts = {
+        'sass':     ['../css', 'css'],
+        'scss':     ['../css', 'css'],
+        'less':     ['../css', 'css'],
+        'stylus':   ['../css', 'css'],
+        'haml':     ['../', 'html'],
+        'jade':     ['../', 'html'],
+        'slim':     ['../', 'html'],
+        'coffee':   ['../js', 'min.js'],
+    }
+
+SETTINGS                                        *transmitty-settings*
+
+If you'd like to make your own maps, you may disable the automatically mapped
+shortcuts like so:
+>
+    let g:transmittyNoMappings = 1
+<
+And then bind keys to these two Plugs:
+>
+    " Uploads current file (but checks for compiled files, if applicable)
+    <Plug>(transmitty-upload)
+
+    " Uploads current file (does no checking)
+    <Plug>(transmitty-upload-this)
+<
+If you'd like to add/set your own filetypes for compiled file checking:
+>
+    " folder_to_search is relative to the open file. It can be an absolute
+    " path if you want (though not recommended).
+    let g:transmittyLookupExts["filetype"] = ["folder_to_search", "extension"]
+<
+
+vim:tw=78:ts=8:ft=help:norl:
