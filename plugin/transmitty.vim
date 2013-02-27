@@ -9,20 +9,9 @@ if exists('g:loadedTransmitty')
 endif
 let g:loadedTransmitty = 1
 
-""""""""""""""
-"  DEFAULTS  "
-""""""""""""""
 if !isreadable('/Applications/Transmit.app')
     echoe "Transmit was not found in your Applications folder"
     finish
-endif
-
-if !exists('g:transmitty_nomappings')
-    let g:transmittyNoMappings = 0
-endif
-
-if !exists('g:transmitty_nomappings')
-    let g:transmittyLookupExts = {}
 endif
 
 
@@ -81,12 +70,16 @@ endfunc
 
 
 """"""""""""""
-"  MAPPINGS  "
+"  DEFAULTS  "
 """"""""""""""
-map <Plug>(transmitty-upload) =<C-U>call <SID>upload(0)<CR>
-map <Plug>(transmitty-upload-this) =<C-U>call <SID>upload(1)<CR>
+if !exists('g:transmitty_nomappings')
+    let g:transmittyNoMappings = 0
+endif
 
-" Set default paths
+if !exists('g:transmitty_nomappings')
+    let g:transmittyLookupExts = {}
+endif
+
 call s:definePath('sass',       ['../css', 'css'])
 call s:definePath('scss',       ['../css', 'css'])
 call s:definePath('less',       ['../css', 'css'])
@@ -96,12 +89,16 @@ call s:definePath('jade',       ['../', 'html'])
 call s:definePath('slim',       ['../', 'html'])
 call s:definePath('coffee',     ['../js', 'min.js'])
 
-if g:transmittyNoMappings != 1
 
+""""""""""""""
+"  MAPPINGS  "
+""""""""""""""
+map <Plug>(transmitty-upload) =<C-U>call <SID>upload(0)<CR>
+map <Plug>(transmitty-upload-this) =<C-U>call <SID>upload(1)<CR>
+
+if g:transmittyNoMappings != 1
     " Upload current file (check paths)
     map <leader>u <Plug>(transmitty-upload)
-
     " Upload the current file (no lookup)
     map <leader>U <Plug>(transmitty-upload-this)
-
 endif
