@@ -6,8 +6,6 @@ plugin also does a shallow search for for filetypes that are compiled. For
 example, CSS stylesheet compiled from [SCSS](http://sass-lang.com/),
 [LESS](http://lesscss.org/) or [stylus](http://learnboost.github.com/stylus/).
 
-Should go without saying: this is **only for macs**.
-
 ## Installation
 
 If you don't have a preferred installation method, I'd recommend
