@@ -54,10 +54,10 @@ shortcuts like so:
 And then bind keys to these two Plugs:
 >
     " Uploads current file (but checks for compiled files, if applicable)
-    <Plug>(transmitty-upload)
+    <Plug>TransmittyUploadLook
 
     " Uploads current file (does no checking)
-    <Plug>(transmitty-upload-this)
+    <Plug>TransmittyUploadNoLook
 <
 If you'd like to add/set your own filetypes for compiled file checking:
 >

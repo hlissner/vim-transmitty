@@ -88,12 +88,12 @@ call s:definePath('coffee',     ['../js', 'min.js'])
 """"""""""""""
 "  MAPPINGS  "
 """"""""""""""
-map <Plug>TransmittyUpload :<C-U>call <SID>upload(0)<CR>
-map <Plug>TransmittyUploadThis :<C-U>call <SID>upload(1)<CR>
+map <Plug>TransmittyUploadLook :<C-U>call <SID>upload(0)<CR>
+map <Plug>TransmittyUploadNoLook :<C-U>call <SID>upload(1)<CR>
 
 if g:transmittyNoMappings != 1
     " Upload current file (check paths)
-    map <leader>u <Plug>TransmittyUpload
+    map <leader>u <Plug>TransmittyUploadLook
     " Upload the current file (no lookup)
-    map <leader>U <Plug>TransmittyUploadThis
+    map <leader>U <Plug>TransmittyUploadNoLook
 endif
