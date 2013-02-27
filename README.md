@@ -11,6 +11,17 @@ example, CSS stylesheet compiled from [SCSS](http://sass-lang.com/),
 
 Should go without saying: this is **only for macs**.
 
+## Installation
+
+If you don't have a preferred installation method, I'd recommend
+[Vundle](https://github.com/gmarik/vundle). Then you'd simply add this to your
+vimrc:
+
+    Bundle "hlissner/vim-transmitty"
+
+Then restart and run:
+
+    :BundleInstall
 
 ## Requirements
 
