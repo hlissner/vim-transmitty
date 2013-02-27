@@ -21,8 +21,8 @@ func! s:upload(force_no_lookup)
         return
     endif
 
-    silent exec '!open -a Transmit '.shellescape(filepath)
-    " echo filepath
+    " silent exec '!open -a Transmit '.shellescape(filepath)
+    echo filepath
     echom "Uploaded!"
 endfunc
 
@@ -46,7 +46,7 @@ func! s:findFile()
         let dir = resolve(expand(lookup[0][0] == '/' ? lookup[0] : dir.'/'.lookup[0]))
 
         " Find/set the new file extension
-        if index(lookup, 1) != -1
+        if strlen(get(lookup, 1, "")) > 0
             let ext = lookup[1]
         endif
 
