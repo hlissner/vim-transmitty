@@ -83,6 +83,9 @@ endfunc
 """"""""""""""
 "  MAPPINGS  "
 """"""""""""""
+map <Plug>(transmitty-upload) =<C-U>call <SID>upload(0)<CR>
+map <Plug>(transmitty-upload-this) =<C-U>call <SID>upload(1)<CR>
+
 " Set default paths
 call s:definePath('sass',       ['../css', 'css'])
 call s:definePath('scss',       ['../css', 'css'])
@@ -96,9 +99,9 @@ call s:definePath('coffee',     ['../js', 'min.js'])
 if g:transmittyNoMappings != 1
 
     " Upload current file (check paths)
-    map <leader>u :<C-U>call <SID>upload(0)<CR>
+    map <leader>u <Plug>(transmitty-upload)
 
     " Upload the current file (no lookup)
-    map <leader>U :<C-U>call <SID>upload(1)<CR>
+    map <leader>U <Plug>(transmitty-upload-this)
 
 endif
