@@ -9,7 +9,7 @@ if exists('g:loadedTransmitty')
 endif
 let g:loadedTransmitty = 1
 
-if !isreadable('/Applications/Transmit.app')
+if !filereadable('/Applications/Transmit.app')
     echoe "Transmit was not found in your Applications folder"
     finish
 endif
