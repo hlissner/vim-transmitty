@@ -1,7 +1,4 @@
 # Transit.app integration for VIM (Mac)
-*This is a part of my [VIM distro for spaghetti code
-warriors](https://github.com/hlissner/mlvim).*
-
 ## Description
 A simple vim plugin that lets you send the current file to
 [Transmit](http://panic.com/transmit/), leveraging its "dropsend" feature. The
@@ -54,3 +51,12 @@ To set your own:
 
     " folder_to_search is relative to the open file
     let g:transmittyLookupExts["filetype"] = ["folder_to_search", "extension"]
+
+## Recommendations
+
+I'd suggest you try out [LiveReload](http://livereload.com/) or
+[CodeKit](http://incident57.com/codekit/) to "watch" and compile your code
+on save.
+
+This plugin's a part of my [VIM distro for spaghetti code
+warriors](https://github.com/hlissner/mlvim).
