@@ -21,9 +21,8 @@ func! s:upload(force_no_lookup)
         return
     endif
 
-    " silent exec '!open -a Transmit '.shellescape(filepath)
-    echo filepath
-    echom "Uploaded!"
+    silent exec '!open -a Transmit '.shellescape(filepath)
+    echom "Uploaded: ".split(filepath, '/')[-1]
 endfunc
 
 " See if this is one of the "lookup" extensions, and if it is, find the real
