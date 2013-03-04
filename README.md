@@ -47,7 +47,7 @@ g:transmittyLookupExts dictionary. These are the provided defaults:
 If you'd like to set/add your own:
 
     " folder_to_search is relative to the open file
-    let g:transmittyLookupExts["filetype"] = ["folder_to_search", "extension"]
+    let g:transmitty_lookup_exts["filetype"] = ["folder_to_search", "extension"]
 
 ## Recommendations
 

@@ -49,7 +49,7 @@ SETTINGS                                        *transmitty-settings*
 If you'd like to make your own maps, you may disable the automatically mapped
 shortcuts like so:
 >
-    let g:transmittyNoMappings = 1
+    let g:transmitty_no_mappings = 1
 <
 And then bind keys to these two Plugs:
 >
@@ -63,7 +63,7 @@ If you'd like to add/set your own filetypes for compiled file checking:
 >
     " folder_to_search is relative to the open file. It can be an absolute
     " path if you want (though not recommended).
-    let g:transmittyLookupExts["filetype"] = ["folder_to_search", "extension"]
+    let g:transmitty_lookup_exts["filetype"] = ["folder_to_search", "extension"]
 <
 
 vim:tw=78:ts=8:ft=help:norl:
