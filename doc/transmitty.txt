@@ -65,5 +65,9 @@ If you'd like to add/set your own filetypes for compiled file checking:
     " path if you want (though not recommended).
     let g:transmitty_lookup_exts["filetype"] = ["folder_to_search", "extension"]
 <
+And if, for some reason, Transmit is somewhere other than /Applications:
+>
+    let g:transmitty_app = "path/to/Transmit.app"
+<
 
 vim:tw=78:ts=8:ft=help:norl:

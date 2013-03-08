@@ -1,10 +1,11 @@
-# Transit.app integration for VIM (Mac)
+# Transit.app integration for VIM (Mac only)
 ## Description
-A simple vim plugin that lets you send the current file to
-[Transmit](http://panic.com/transmit/), leveraging its "dropsend" feature. The
-plugin also does a shallow search for compiled filetypes. For example, CSS
+A simple vim plugin that sends the current file to
+[Transmit](http://panic.com/transmit/) to be uploaed, using its "dropsend"
+feature. The plugin also does a shallow search for compiled filetypes (CSS
 stylesheet compiled from [SCSS](http://sass-lang.com/),
-[LESS](http://lesscss.org/) or [stylus](http://learnboost.github.com/stylus/).
+[LESS](http://lesscss.org/) or [stylus](http://learnboost.github.com/stylus/),
+for instance).
 
 ## Installation
 
@@ -18,22 +19,17 @@ Then restart and run:
 
     :BundleInstall
 
-## Requirements
-
-This should go without saying: this is MAC ONLY. You also need
-[Transmit](http://panic.com/transmit/) in your /Applications folder.
-
 ## Usage
 
 The plugin provides two simple shortcuts:
 
-    <leader>ou       " Send this file to Transmit"
+    <leader>ou       " Send this file to Transmit
     <leader>oU       " Send this file to Transmit (but don't look for compiled files)
 
 It will search for compiled files for any filetype that's been registered in the
-g:transmittyLookupExts dictionary. These are the provided defaults:
+g:transmitty_lookup_exts dictionary. These are the provided defaults:
 
-    let g:transmittyLookupExts = {
+    let g:transmitty_lookup_exts = {
         'sass':     ['../css', 'css'],
         'scss':     ['../css', 'css'],
         'less':     ['../css', 'css'],
@@ -48,6 +44,10 @@ If you'd like to set/add your own:
 
     " folder_to_search is relative to the open file
     let g:transmitty_lookup_exts["filetype"] = ["folder_to_search", "extension"]
+
+And if, for some reason, Transmit is somewhere other than /Applications:
+
+    let g:transmitty_app = "path/to/Transmit.app"
 
 ## Recommendations
 
