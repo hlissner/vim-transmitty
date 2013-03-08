@@ -20,6 +20,10 @@ let g:loaded_transmitty = 1
         let g:transmitty_lookup_exts = {}
     endif
 
+    if !exists('g:transmitty_app')
+        let g:transmitty_app = '/Applications/Transmit.app'
+    endif
+
 " }}
 
 
@@ -35,7 +39,7 @@ let g:loaded_transmitty = 1
             return
         endif
 
-        silent exec '!open -a Transmit '.shellescape(filepath)
+        silent exec '!open -a '.shellescape(g:transmitty_app).' '.shellescape(filepath)
         echom "Uploaded: ".split(filepath, '/')[-1]
     endfunc
     " }}
