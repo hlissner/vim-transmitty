@@ -1,6 +1,5 @@
 " *vim-transmitty* Integrating Transmit and vim
 "
-" Version: 0.0.2
 " Author: Henrik Lissner <henrik at lissner.net>
 " URL: https://github.com/hlissner/vim-transmitty
 
