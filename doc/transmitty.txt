@@ -41,7 +41,7 @@ g:transmittyLookupExts dictionary. These are the provided defaults:
         'haml':     ['../', 'html'],
         'jade':     ['../', 'html'],
         'slim':     ['../', 'html'],
-        'coffee':   ['../js', 'min.js'],
+        'coffee':   ['../js', 'min.js']
     }
 
 SETTINGS                                        *transmitty-settings*

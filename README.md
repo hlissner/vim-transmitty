@@ -35,7 +35,7 @@ g:transmitty_lookup_exts dictionary. These are the provided defaults:
         'haml':     ['../', 'html'],
         'jade':     ['../', 'html'],
         'slim':     ['../', 'html'],
-        'coffee':   ['../js', 'min.js'],
+        'coffee':   ['../js', 'min.js']
     }
 
 If you'd like to set/add your own:
