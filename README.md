@@ -1,11 +1,9 @@
 # Transit.app integration for VIM (Mac only)
 ## Description
-A simple vim plugin that sends the current file to
-[Transmit](http://panic.com/transmit/) to be uploaed, using its "dropsend"
-feature. The plugin also does a shallow search for compiled filetypes (CSS
-stylesheet compiled from [SCSS](http://sass-lang.com/),
-[LESS](http://lesscss.org/) or [stylus](http://learnboost.github.com/stylus/),
-for instance).
+A simple vim plugin that sends the current file to [Transmit] to be uploaded,
+using its "dropsend" feature. The plugin also does a shallow search for
+compiled files. For example, if you're working on a [SCSS], [LESS] or [Stylus]
+stylesheet, it will look for the compiled CSS file and upload that instead.
 
 ## Installation
 
@@ -53,3 +51,8 @@ you save.
 
 This plugin's a part of my [VIM distro for spaghetti code
 warriors](https://github.com/hlissner/mlvim).
+
+[Transmit]:http://panic.com/transmit/
+[SCSS]:http://sass-lang.com/
+[LESS]:http://lesscss.org/
+[Stylus]:http://learnboost.github.com/stylus/

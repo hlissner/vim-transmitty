@@ -10,10 +10,11 @@ License: Same as Vi (see |license|)
 
 INTRODUCTION                                    *transmitty*
 
-A simple vim plugin that lets you send the current file to Transmit,
-leveraging its "dropsend" feature. The plugin also does a shallow search for
-compiled filetypes. For example, CSS stylesheet compiled from SCSS, LESS or
-Stylus.
+A simple vim plugin that sends the current file to Transmit to be uploaded,
+using its "dropsend" feature. The plugin also does a shallow search for
+compiled files. For example, if you're working on a SCSS, LESS or Stylus
+stylesheet, it will try to look for the compiled CSS stylesheet and upload
+that instead.
 
 REQUIREMENTS                                    *transmitty-requirements*
 
