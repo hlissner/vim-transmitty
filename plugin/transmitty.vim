@@ -19,9 +19,7 @@ let g:loaded_transmitty = 1
         let g:transmitty_lookup_exts = {}
     endif
 
-    if !exists('g:transmitty_app')
-        let g:transmitty_app = '/Applications/Transmit.app'
-    endif
+    let s:script_base = expand("<sfile>:p:h:h")
 
 " }}
 
@@ -31,30 +29,33 @@ let g:loaded_transmitty = 1
 
     " upload(force_no_lookup) {{
     " Try to send the currently open file to Transmit!
-    func! s:upload(force_no_lookup)
-        let filepath = a:force_no_lookup == 1 ? expand('%:p') : s:findFile()
-        if strlen(filepath) == 0
-            echoe "Could not find the file! (Was it saved/compiled?)"
+    func! s:upload(no_lookup)
+        let filepath = s:findFile(a:no_lookup)
+        if !filereadable(filepath)
+            echoe "Could not find the file! Was it saved/compiled?"
+            echoe "Checked: ".filepath
             return
         endif
 
-        silent exec '!open -a '.shellescape(g:transmitty_app).' '.shellescape(filepath)
-        echom "Uploaded: ".split(filepath, '/')[-1]
+        let applescript = s:script_base . "/apple/send_to_transmit.applescript"
+        silent exec '!osascript '.shellescape(applescript). ' '.shellescape(filepath)
+        echom "File sent to Transmit: ".split(filepath, '/')[-1]
     endfunc
     " }}
 
     " findFile() {{
     " See if this is one of the "lookup" extensions, and if it is, find the real
     " file we're meant to send to Transmit.
-    func! s:findFile()
+    func! s:findFile(no_lookup)
         let currentfile = expand("%:p")
-
-        if strlen(currentfile) == 0
+        if currentfile ==# ""
             return ""
         endif
 
         let ext = expand("%:e")
-        if has_key(g:transmitty_lookup_exts, ext)
+        if a:no_lookup == 1 || !has_key(g:transmitty_lookup_exts, ext)
+            return currentfile
+        else
             let lookup = g:transmitty_lookup_exts[ext]
 
             let dir  = expand("%:p:h")
@@ -69,8 +70,6 @@ let g:loaded_transmitty = 1
             endif
 
             return dir . '/' . base . '.' . ext
-        else
-            return currentfile
         endif
     endfunc
     " }}
@@ -102,7 +101,8 @@ call s:definePath('coffee',     ['../js', 'min.js'])
 map <Plug>TransmittyUploadLook :<C-U>call <SID>upload(0)<CR>
 map <Plug>TransmittyUploadNoLook :<C-U>call <SID>upload(1)<CR>
 
-if g:transmitty_no_mappings != 1
+let os = substitute(system("uname -s"), '\n', '', '')
+if g:transmitty_no_mappings != 1 && os ==# "Darwin"
     " Upload current file (check paths)
     nmap <leader>ou <Plug>TransmittyUploadLook
     " Upload the current file (no lookup)
