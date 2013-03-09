@@ -27,7 +27,7 @@ let g:loaded_transmitty = 1
 """""""""""""""""""""
 " Core {{
 
-    " upload(force_no_lookup) {{
+    " upload(no_lookup) {{
     " Try to send the currently open file to Transmit!
     func! s:upload(no_lookup)
         let filepath = s:findFile(a:no_lookup)
